@@ -2,7 +2,7 @@
 Her finn du all infoen du treng for å bruke oppsettet mitt.
 
 ## Setup rekkefølge
-Eg satt opp einingane i denne rekkefølga, men det viktigaste er at Ruter1.yml og Ruter2.yml blir køyrt før resten av switchane blir satt opp.
+Eg satt opp einingane i denne rekkefølga, men det viktigaste er at SW1,R1,og R2 blir satt opp og Ruter1.yml og Ruter2.yml blir køyrt før resten av switchane blir satt opp.
  - ssh.py til management switch (SW1)
  - ssh.py til ruter 1 (R1)
  - ssh.py til ruter 2 (R2)
