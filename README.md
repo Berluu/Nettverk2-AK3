@@ -13,7 +13,7 @@ Eg satt opp einingane i denne rekkefølga, men det viktigaste er at Ruter1.yml o
  - ssh.py til neste switch (SW4)
  - ansible playbook SWaccess.yml
 
-Du finn korleis ssh.py fungera [her](#ssh.py-sett-opp-SSH-på-rutera-og-switchar)
+Du finn korleis ssh.py fungera [her](#ssh.py-sett-opp-ssh-på-rutera-og-switchar)
    
 ## FYI
 - På SW1 blir det berre sett opp ein trunk port med ssh.py, du treng enda ein sidan begge ruterane skal koplast til
