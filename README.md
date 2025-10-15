@@ -1,4 +1,10 @@
-# Overview
+# Info
+Her skriv eg overfladisk om korleis ting skal gjerast for å bli satt opp rett.
+
+## Overview
+
+
+
 
 ## Setup rekkefølge
 Einingane må settast opp i denne rekkefølga for at det skal fungere.
