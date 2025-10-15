@@ -1,4 +1,6 @@
 # Python skript for å sette opp SSH på rutera og switchar
+Her skriv eg om kva som skjer i skriptet og korleis det skal brukast.
+Det er viktig at einingane blir satt opp i riktig rekkefølge, sjekk overview(link???)
 
 ## Forutsetningar
  - Python er installert
