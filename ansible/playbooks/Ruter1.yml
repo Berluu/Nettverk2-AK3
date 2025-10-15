@@ -25,6 +25,13 @@
         - ip address 192.168.20.3 255.255.255.0
       parents: interface g0/0/1.20     # Kan endre kva port som blir brukt her
 
+  - name: Sett opp port g0/0/1.99
+    cisco.ios.ios_config:
+      lines:
+        - encapsulation dot1Q 99
+        - ip address 10.99.2.2 255.255.255.0
+      parents: interface g0/0/1.99     # Kan endre kva port som blir brukt her
+
   
   - name: HSRP port g0/0/1.10
     cisco.ios.ios_config:
@@ -42,12 +49,6 @@
         - standby 20 ip 192.168.20.1
       parents: interface g0/0/1.20     # Kan endre kva port som blir brukt her
 
-  - name: Sett opp port g0/0/1.99
-    cisco.ios.ios_config:
-      lines:
-        - encapsulation dot1Q 99
-        - ip address 10.99.2.2 255.255.255.0
-      parents: interface g0/0/1.99     # Kan endre kva port som blir brukt her
 
   - name: HSRP port g0/0/1.99
     cisco.ios.ios_config:
