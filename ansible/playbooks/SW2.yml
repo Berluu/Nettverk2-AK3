@@ -1,0 +1,31 @@
+---
+
+- name: Konfigurere Switch 2
+  hosts: cisco_switch_2
+  gather_facts: false
+
+  tasks:
+  - name: Lag VLAN 10
+    cisco.ios.ios_config:
+      lines:
+        - name Vlan10
+      parents: vlan 10
+
+  - name: Lag VLAN 20
+    cisco.ios.ios_config:
+      lines:
+        - name Vlan20
+      parents: vlan 20
+
+  - name: Trunk port til ruter2
+    cisco.ios.ios_config:
+      lines:
+        - switchport mode trunk
+      parents: interface Fa0/23     # Kan endre kva port som blir brukt her
+
+  - name: Etherchannel
+    cisco.ios.ios_config:
+      lines:
+        - switchport mode trunk
+        - channel-group 1 mode desirable
+      parents: interface range Fa0/1 - 2    # Kan endre kva portar som blir brukt her

@@ -1,0 +1,33 @@
+---
+
+- name: Konfigurer access switchar
+  hosts: cisco_switch_access   # Kan endre til cisco_switch_access2 for å konfigurere den andre access switchen
+  gather_facts: false
+
+  tasks:
+  - name: Lag VLAN 10
+    cisco.ios.ios_config:
+      lines:
+        - name Vlan10
+      parents: vlan 10
+
+  - name: Lag VLAN 20
+    cisco.ios.ios_config:
+      lines:
+        - name Vlan20
+      parents: vlan 20
+
+  - name: Sett access port til VLAN 10
+    cisco.ios.ios_config:
+      lines:
+        - switchport mode access
+        - switchport access vlan 10
+      parents: interface g1/0/1 # Kan endre access port her
+
+  - name: Sett access port til VLAN 20
+    cisco.ios.ios_config:
+      lines:
+        - switchport mode access
+        - switchport access vlan 20
+      parents: interface g1/0/2 # Kan endre access port her
+  

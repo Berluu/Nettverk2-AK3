@@ -1,0 +1,92 @@
+---
+
+- name: Konfigurere Ruter 1
+  hosts: cisco_ruter_1
+  gather_facts: false
+
+  tasks:
+  - name: Sett opp port g0/0/1.10
+    cisco.ios.ios_config:
+      lines:
+        - encapsulation dot1Q 10
+        - ip address 192.168.10.2 255.255.255.0
+      parents: interface g0/0/1.10     # Kan endre kva port som blir brukt her
+
+  - name: No shut port g0/0/1
+    cisco.ios.ios_config:
+      lines:
+        - no shut
+      parents: interface g0/0/1     # Kan endre kva port som blir brukt her
+
+  - name: Sett opp port g0/0/1.20
+    cisco.ios.ios_config:
+      lines:
+        - encapsulation dot1Q 20
+        - ip address 192.168.20.3 255.255.255.0
+      parents: interface g0/0/1.20     # Kan endre kva port som blir brukt her
+
+  
+  - name: HSRP port g0/0/1.10
+    cisco.ios.ios_config:
+      lines:
+        - standby version 2
+        - standby 10 ip 192.168.10.1
+        - standby 10 priority 120
+        - standby 10 preempt
+      parents: interface g0/0/1.10     # Kan endre kva port som blir brukt her
+
+  - name: HSRP port g0/0/1.20
+    cisco.ios.ios_config:
+      lines:
+        - standby version 2
+        - standby 20 ip 192.168.20.1
+      parents: interface g0/0/1.20     # Kan endre kva port som blir brukt her
+
+  - name: Sett opp port g0/0/1.99
+    cisco.ios.ios_config:
+      lines:
+        - encapsulation dot1Q 99
+        - ip address 10.99.2.2 255.255.255.0
+      parents: interface g0/0/1.99     # Kan endre kva port som blir brukt her
+
+  - name: HSRP port g0/0/1.99
+    cisco.ios.ios_config:
+      lines:
+        - standby version 2
+        - standby 99 ip 10.99.2.1
+        - standby 99 priority 120
+        - standby 99 preempt
+      parents: interface g0/0/1.99     # Kan endre kva port som blir brukt her
+
+
+  - name: Konfigurer OSPF ruting
+    cisco.ios.ios_config:
+      lines: 
+        - "router-id 1.1.1.1"
+        - network 10.99.1.0 0.0.0.255 area 0
+        - network 10.99.2.0 0.0.0.255 area 0
+        - network 192.168.10.0 0.0.0.255 area 0
+        - network 192.168.20.0 0.0.0.255 area 0
+      parents: router ospf 1
+
+  - name: DHCP exclusions
+    cisco.ios.ios_config:
+      lines:
+        - ip dhcp excluded-address 192.168.10.1 192.168.10.10
+        - ip dhcp excluded-address 192.168.20.1 192.168.20.10
+
+  - name: Sett opp DHCP pool for VLAN 10
+    cisco.ios.ios_config:
+      lines:
+        - network 192.168.10.1 255.255.255.0
+        - default-router 192.168.10.1
+        - dns-server 192.168.10.1
+      parents: ip dhcp pool dhcpVLAN10
+  
+  - name: Sett opp DHCP pool for VLAN 20
+    cisco.ios.ios_config:
+      lines:
+        - network 192.168.20.1 255.255.255.0
+        - default-router 192.168.20.1
+        - dns-server 192.168.20.1
+      parents: ip dhcp pool dhcpVLAN20
