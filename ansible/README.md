@@ -4,7 +4,7 @@ Her skriv eg om korleis anisble oppsettet mitt fungera
 ## Hosts fila
 SKriv om hosts fila blabla
 
-## playbooks/ mappa
+## Playbooks mappa
 Her skriv eg om det som er i denne mappa
 
 ### ansible.cfg fila
