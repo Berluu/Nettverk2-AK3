@@ -1,11 +1,5 @@
 # README WOOOOOOOOOOOO
 
-
-## Overview
-
-
-
-
 ## Setup rekkefølge
 Eg satt opp einingane i denne rekkefølga, men det viktigaste er at Ruter1.yml og Ruter2.yml blir køyrt før resten av switchane blir satt opp.
  - ssh.py til management switch (SW1)
@@ -18,27 +12,34 @@ Eg satt opp einingane i denne rekkefølga, men det viktigaste er at Ruter1.yml o
  - ansible playbook SW3.yml
  - ssh.py til neste switch (SW4)
  - ansible playbook SWaccess.yml
+
+Du finn korleis ssh.py fungera [her](#ssh.py-sett-opp-SSH-på-rutera-og-switchar)
    
 ## FYI
 - På SW1 blir det berre sett opp ein trunk port med ssh.py, du treng enda ein sidan begge ruterane skal koplast til
    - Sett opp og kople til med SSH
      ``` ssh cisco@10.99.1.2 ```
-  - Her er copypaste for deg:
-    ```enable ```
-    ```conf t ```
-    ```int  ```
-  
+   - Sett opp trunk port, her er copypaste for deg:
+```
+enable
+conf t
 
-# ssh.py - Python skript for å sette opp SSH på rutera og switchar
-Her skriv eg om kva som skjer i skriptet og korleis det skal brukast.
-Det er viktig at einingane blir satt opp i riktig rekkefølge, sjekk overview(link???)
+int g1/0/23
+switchport mode trunk
+no shutdown
+end
+ ```
+- Sjekk at einingane dine bruka GigabitEthernet eller FastEthernet og om det stemmer overens i ansible. Eg har lagt til kommentarar alle plassar dette kan gjelde.
+
+
+# ssh.py sett opp SSH på rutera og switchar
+
 
 ## Forutsetningar
  - Python er installert
  - Pyserial er installert
 
 ## Korleis skriptet fungera
-!! For alle inputs, følg overview (link??) !!
 
 1. Sørg for at du er kopla til ruteren eller switchen med konsoll kabel
 2. Køyr skriptet
