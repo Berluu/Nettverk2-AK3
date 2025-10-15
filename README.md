@@ -1,4 +1,5 @@
-# README WOOOOOOOOOOOO
+# Info om korleis bruke ssh.py og ansible playbookane mine
+Her finn du all infoen du treng for å bruke oppsettet mitt.
 
 ## Setup rekkefølge
 Eg satt opp einingane i denne rekkefølga, men det viktigaste er at Ruter1.yml og Ruter2.yml blir køyrt før resten av switchane blir satt opp.
@@ -30,6 +31,7 @@ no shutdown
 end
  ```
 - Sjekk at einingane dine bruka GigabitEthernet eller FastEthernet og om det stemmer overens i ansible. Eg har lagt til kommentarar alle plassar dette kan gjelde.
+- For å køyre playbooks må du vere i playbooks mappa, også berre køyr kommandoen: ```ansible-playbook Ruter1.yml```
 
 
 # ssh.py sett opp SSH på rutera og switchar
