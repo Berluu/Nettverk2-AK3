@@ -27,7 +27,6 @@ except serial.SerialException as e:
     print(f"Error opening serial port: {e}")
 
 
-
 # Velg om du skal sette opp switch eller ruter
 Device = int(input("Ruter=1, Switch=2: "))
 
@@ -166,4 +165,5 @@ for SSHcmd in commands_ssh:
     # Avslutt og lukk seriell tilkopling
 print("SSH oppsett fullført")
 ser.close()
+
 
