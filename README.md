@@ -38,7 +38,8 @@ end
 
 Her er ein tabell over konfigurasjonen du treng for å sleppe å endre på ting i ansible:
 
-<img width="443" height="523" alt="image" src="https://github.com/user-attachments/assets/53555f5d-afc1-4070-a132-43c9a1afff39" />
+<img width="443" height="503" alt="image" src="https://github.com/user-attachments/assets/138fad6c-8d64-4226-99e9-e6695dbb98a7" />
+
 
 
 ## Forutsetningar
