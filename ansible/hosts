@@ -7,7 +7,7 @@ cisco_switch_2 ansible_host=10.99.2.4
 cisco_switch_3 ansible_host=10.99.2.5
 cisco_switch_access ansible_host=10.99.2.6
 #cisco_switch_access2 ansible_host=10.99.2.7    # Kan fjerne kommentar for å begge access switchane
-                                                # Hugs å endre hosts i SWaccess.yml også
+                                                # Hugs å endre hosts i SWaccess.yml også 
 
 
 [cisco:children]
